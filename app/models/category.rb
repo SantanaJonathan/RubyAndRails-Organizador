@@ -10,4 +10,10 @@
 #
 class Category < ApplicationRecord
     has_many :tasks
+
+    #validar que esten los campos llenos
+    validates :name, :description, presence: true
+    #validar la unicidad de los datos// case_.. para que no djen pasar entre mayuscula y minuscula
+    validates :name, uniqueness: {case_insensitive: false}
+    
 end
