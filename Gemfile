@@ -25,6 +25,8 @@ gem 'hamlit' #template
 
 gem 'simple_form'#formulario
 
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -49,6 +51,8 @@ group :development do
   gem 'spring'
 
   gem 'hamlit-rails'#conector entre hamlit y rails
+
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
