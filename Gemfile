@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'hamlit' #template
 
 gem 'simple_form'#formulario
-
+gem 'rails-i18n' #internacionalizar palabras externas
 
 
 # Use Active Storage variant
