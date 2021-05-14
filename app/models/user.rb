@@ -22,5 +22,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :taks
+  has_many :owned_tasks #tareas propias del usuario
+  has_many :participations, class_name: 'Participant' #lo que el ususario participa en la tarea
+
+  has_many :tasks, through: :participations #como user al acceso a las tareas desde participations
 end

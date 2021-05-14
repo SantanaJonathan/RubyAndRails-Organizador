@@ -24,6 +24,10 @@
 class Task < ApplicationRecord
   belongs_to :category
   belongs_to :owner, class_name: 'User'
+  has_many :participating_users, class_name: 'Participant'
+  has_many :participants, through: :participating_users, source: :user #conectado a la relacion con participantes(user)
+
+  validates :participating_users, presence: true
 
   #validar que esten los campos llenos
   validates :name, :descripction, presence: true
