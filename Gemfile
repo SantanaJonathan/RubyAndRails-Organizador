@@ -26,6 +26,7 @@ gem 'hamlit' #template
 gem 'simple_form'#formulario
 gem 'rails-i18n' #internacionalizar palabras externas
 gem 'devise'#una seria de plugin/sistema de acceso y de sesion robusto
+gem 'cocoon' #que un solo formulario pueda interactuar con dos formularios (task,participants)
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

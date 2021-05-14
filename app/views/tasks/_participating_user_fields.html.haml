@@ -1,0 +1,6 @@
+-# select-> de la clave grafica input se depliega todos los usuarios de la tareas
+-# collection -> donde estan los usuarios User y quitar el usuario asiganado a la tarea
+.nested-fields 
+  = f.input :user_id, as: :select, collection: User.all - [current_user]
+  = f.input :role
+

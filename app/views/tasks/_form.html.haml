@@ -8,6 +8,10 @@
     = f.input :descripction, label: t('.description')
     = f.input :due_date, label: t('.due_date')
     = f.association :category, label: t('.category')
+-# referenciar un modelo(formulario) anidado en el mismo formulario (tarea-participant)
+    .participants
+      = f.simple_fields_for :participatings_users do |g|
+        = render 'participating_user_fields', f: g
 
   .form-actions
     = f.button :submit
