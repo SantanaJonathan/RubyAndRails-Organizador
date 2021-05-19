@@ -1,9 +1,19 @@
 class TasksController < ApplicationController
+  load_and_authorize_resource #autorizo (enlace con el ability de cancan)
+  
   before_action :set_task, only: %i[ show edit update destroy ]
 
   # GET /tasks or /tasks.json
+  #aqui muestra todas la tareas (filtrado para que se muestre a quien sea necesario)
+  #join hace consulta en memoria con task y participant
+  #si la tarea le pertenece a nuestro le permite mostrar asi como participante
+  #owner_id/particpants.user_id -> current_user.id //groupby para que no haya duplicado
   def index
-    @tasks = Task.all
+    @tasks = Task.joins(:participants).where(
+      'owner_id = ? OR particpants.user_id = ?',
+      current_user.id,
+      current_user.id,
+    ).group(:id)
   end
 
   # GET /tasks/1 or /tasks/1.json

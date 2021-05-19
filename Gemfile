@@ -27,7 +27,7 @@ gem 'simple_form'#formulario
 gem 'rails-i18n' #internacionalizar palabras externas
 gem 'devise'#una seria de plugin/sistema de acceso y de sesion robusto
 gem 'cocoon' #que un solo formulario pueda interactuar con dos formularios (task,participants)
-
+gem 'cancancan' #para la autorizacion de un usuario con otro
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -49,7 +49,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
 
   gem 'hamlit-rails'#conector entre hamlit y rails
 
