@@ -37,6 +37,9 @@ class Task < ApplicationRecord
   #validacion personalizada para la due_date(fecha de vencimiento)
   validate :due_date_validity
 
+  #validar internamente informacion anidada (recibe con la aso de participating_users) //destruirlas(allow_destroy)
+  accepts_nested_attributes_for :participating_users, allow_destroy: true 
+
   def due_date_validity
     return if due_date.blank?#si esta en blanco
     return if due_date > Date.today

@@ -64,7 +64,20 @@ class TasksController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    #verificador de informacion(se crea cuando se creo el scaffolds)
     def task_params
-      params.require(:task).permit(:name, :descripction, :due_date, :category_id)
+      params.require(:task).permit(
+        :name,
+        :descripction,
+        :due_date,
+        :category_id,
+        #relacion con participating
+        participating_users_attributes: [
+          :user_id,
+          :role,
+          :id,
+          :_destroy#permite destruir el participante
+       ]
+      )
     end
 end
