@@ -3,6 +3,7 @@
 # Table name: tasks
 #
 #  id           :bigint           not null, primary key
+#  code         :string
 #  descripction :text
 #  due_date     :date
 #  name         :string
@@ -37,6 +38,9 @@ class Task < ApplicationRecord
   #validacion personalizada para la due_date(fecha de vencimiento)
   validate :due_date_validity
 
+  #un stop antes de crear una tarea para ejecutar un metodo "create_code"
+  before_create :create_code
+
   #validar internamente informacion anidada (recibe con la aso de participating_users) //destruirlas(allow_destroy)
   accepts_nested_attributes_for :participating_users, allow_destroy: true 
 
@@ -44,6 +48,10 @@ class Task < ApplicationRecord
     return if due_date.blank?#si esta en blanco
     return if due_date > Date.today
     errors.add :due_date, I18n.t('task.errors.invalid_due_date')
+  end
+
+  def create_code
+    code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex()}"
   end
 
 end

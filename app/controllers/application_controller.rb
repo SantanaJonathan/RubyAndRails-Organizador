@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    #callbacks
     before_action :set_locale
 
     before_action :authenticate_user!#para que se autentique el usuario
@@ -11,4 +12,5 @@ class ApplicationController < ActionController::Base
     def set_locale
         I18n.locale = 'es'
     end
+
 end
