@@ -51,7 +51,7 @@ class Task < ApplicationRecord
   end
 
   def create_code
-    code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex()}"
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
   end
 
 end
